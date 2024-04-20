@@ -7,21 +7,23 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Cancel from "./pages/Cancel.js"
 import Store from "./pages/Store.js"
 import Success from "./pages/Success.js"
+import CartProvider from "./CartContext.js";
 
 
 function App() {
   return (
-    <Container>
-      <NavbarComponent></NavbarComponent>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Store />} />
-          <Route path="success" element={<Success />} />
-          <Route path="cancel" element={<Cancel />} />
-        </Routes>
-      </BrowserRouter>
-    </Container>
-
+    <CartProvider>  
+      <Container>
+        <NavbarComponent></NavbarComponent>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<Store />} />
+            <Route path="success" element={<Success />} />
+            <Route path="cancel" element={<Cancel />} />
+          </Routes>
+        </BrowserRouter>
+      </Container>
+      </ CartProvider>  
 
     
   );
